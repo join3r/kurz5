@@ -1,0 +1,11 @@
+User zadá čísla
+Zapíš čísla do súboru do Upload/subor.csv
+Príklad:
+1
+2
+3
+5
+8
+100
+Program zapíše do súboru, vždy o jedno číslo väčšie:
+2,3,4,6,9,101

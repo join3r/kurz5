@@ -1,0 +1,7 @@
+Vyžiadaj deň, mesiac a rok od usera (ako čísla)
+Vypíš meno mesiaca, ktoré zadal user:
+Napríklad. User zadal
+10
+5
+1982
+Výstup: 10 Máj 1982
