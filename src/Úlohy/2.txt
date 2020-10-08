@@ -1,4 +1,4 @@
-User zadá čísla
+User zadá čísla a ukončí zadávanie tak, že miesto čísla zadá písmeno 'x'
 Zapíš čísla do súboru do Upload/subor.csv
 Príklad:
 1

@@ -9,23 +9,34 @@ pub fn main() {
 // 5
 // 1982
 // Výstup: 10 Máj 1982
+
+
+// struct Month
+let months = ["Januar", "Februar", "Marec","april","Maj","Jun","Jul","August","September", "Oktober", "November", "December"];
+
+
+// assert_eq!(mesiace[0], "Januar");
+
     let mut day = String::new();
     let mut month = String::new();
     let mut year = String::new();
 
-    println!("Zadaj den");
+    println!("Zadaj den: ");
     io::stdin().read_line(&mut day);
-    let mut day_n: i32 = day.parse().unwrap();
+    let day_n: i32 = day.trim().parse().unwrap(); // Result<_,_>
+
     
-    println!("Zadaj mesiac");
+    println!("Zadaj mesiac: ");
     io::stdin().read_line(&mut month);
-    let mut month_n: i32 = month.parse().unwrap();
+    let month_n: usize = month.trim().parse().unwrap();
+
     
-    println!("Zadaj rok");
+    println!("Zadaj rok: ");
     io::stdin().read_line(&mut year);
-    let mut year: i32 = day.parse().unwrap();
+    let year_n: i32 = year.trim().parse().unwrap();
     
-    println!("User zadal {} {} {}", day, month, year);
+    println!("Vystup: {} {} {}", day_n,  if month_n <= 12 || month_n >= 1 { months[month_n - 1] } else { "Neznamy mesiac" }, year_n);
+   
     
 }
 

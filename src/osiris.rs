@@ -1,96 +1,76 @@
 use std::io;
 
 pub fn main() {
-    println!("Zadaj den (1-31)");
-
-    let mut den = String::new();
-    io::stdin().read_line(&mut den);
-
-    let den: i32 = den.parse().unwrap();
-
+    let mut den: i32;
     loop {
-     if den <1 {
-        println!("Vedze nie takto!");
-    };
-    if den >31 {
-        println!("Vedze nie takto!");     
-    } else {
-        break;
+        println!("Zadaj den (1-31)");
+        let mut den_slovom = String::new();
+        io::stdin().read_line(&mut den_slovom);
+
+        den = den_slovom.trim().parse().unwrap();
+        if den < 1 {
+            println!("Vedze nie takto!");
+        };
+        if den > 31 {
+            println!("Vedze nie takto!");
+        } else {
+            break;
+        }
     }
-};
 
-    println!("Zadaj mesiac (1-12)");
-
-    let mut mesiac = String::new();
-    let mesiac: i32 = mesiac.parse().unwrap();
-
+    let mut mesiac_cislom: usize;
     loop {
-        if mesiac < 1 {
-           println!("Vedze nie takto!");
-       };
-       if mesiac > 12 {
-           println!("Vedze nie takto!");      
-       } else {
-           break;
-       };
-    };
-    println!("Zadaj rok (1-9999)");
+        println!("Zadaj mesiac (1-12)");
 
-    let mut rok = String::new();
-    io::stdin().read_line(&mut rok);
+        let mut mesiac_slovom = String::new();
+        io::stdin().read_line(&mut mesiac_slovom);
+        mesiac_cislom = mesiac_slovom.trim().parse().unwrap();
+        if mesiac_cislom < 1 {
+            println!("Vedze nie takto!");
+        };
+        if mesiac_cislom > 12 {
+            println!("Vedze nie takto!");
+        } else {
+            break;
+        };
+    }
 
-    let rok: i32 = rok.parse().unwrap();
-    
+    let mut rok: i32;
     loop {
-        if rok <1 {
-           println!("Vedze nie takto!");
-       };
-       if rok >9999 {
-           println!("Vedze nie takto!");      
-       } else {
-           break;
-       };
-    };
+        println!("Zadaj rok (1-9999)");
 
-    if mesiac == 1 {
-        let mesiac = "Januar";
-    };
-    if mesiac == 2 {
-        let mesiac = "Februar";
-    };    
-    if mesiac == 3 {
-        let mesiac = "Marec";
-    };    
-    if mesiac == 4 {
-        let mesiac = "April";
-    };    
-    if mesiac == 5 {
-        let mesiac = "Maj";
-    };    
-    if mesiac == 1 {
-        let mesiac = "Jun";
-    };    
-    if mesiac == 1 {
-        let mesiac = "Jul";
-    };    
-    if mesiac == 1 {
-        let mesiac = "August";
-    };    
-    if mesiac == 1 {
-        let mesiac = "September";
-    };
-    if mesiac == 1 {
-        let mesiac = "Oktober";
-    };
-    if mesiac == 1 {
-        let mesiac = "November";
-    };
-    if mesiac == 1 {
-        let mesiac = "December";
-    };
+        let mut rok_slovom = String::new();
+        io::stdin().read_line(&mut rok_slovom);
 
-println!("{} {} {}", den, mesiac, rok);    
+        rok = rok_slovom.trim().parse().unwrap();
+        if rok < 1 {
+            println!("Vedze nie takto!");
+        };
+        if rok > 9999 {
+            println!("Vedze nie takto!");
+        } else {
+            rok;
+            break;
+        };
+    }
+
+    let mesiace = [
+        "Januar",
+        "Februar",
+        "Marec",
+        "April",
+        "Maj",
+        "Jun",
+        "Jul",
+        "August",
+        "September",
+        "Oktober",
+        "November",
+        "December",
+    ];
+    // assert_eq!(mesiace[0], "Januar");
+
+    println!("{} {} {}", den, mesiace[mesiac_cislom - 1], rok);
 }
-
 
 // Vyžiadaj číslo od usera

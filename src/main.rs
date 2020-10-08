@@ -6,6 +6,16 @@ mod hydrant;
 mod firestorm;
 mod bachi;
 
+// let mesiace = ["Januar", "Februar", "Marec", "April", "Maj", "Jun", "Jul", "August", "September", "Oktober", "November", "December"];
+// let index: usize = 10;
+// assert_eq!(mesiace[index], "Januar");
+
+// let slovo: String = "10";
+// let cislo: i32 = slovo.parse().unwrap();
+
+// let slovo = "slovo\n";
+// assert_eq!(slovo.trim(), "slovo");
+
 fn main() {
     println!("osiris");
     println!("evie");
