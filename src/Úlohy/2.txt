@@ -7,5 +7,6 @@ Príklad:
 5
 8
 100
+x
 Program zapíše do súboru, vždy o jedno číslo väčšie:
 2,3,4,6,9,101

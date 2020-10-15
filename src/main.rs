@@ -1,10 +1,19 @@
 use std::io;
 
-mod osiris;
-mod evie;
-mod hydrant;
-mod firestorm;
-mod bachi;
+mod osiris2;
+mod evie2;
+mod hydrant2;
+mod firestorm2;
+mod bachi2;
+
+// let mut cisla: Vec<i32> = Vec::new(); <-- prazdny vector
+// cisla.push(1);
+// cisla.push(2);
+// assert_eq!(cisla[0], 1);
+// assert_eq!(cislo[1], 2);
+
+// let cisla: Vec<i32> = vec![1, 2, "Bimbo"]; <-- Neslo
+// let mena: Vec<&str> = vec!["Jano", "Pista", "Adolf"]
 
 // let mesiace = ["Januar", "Februar", "Marec", "April", "Maj", "Jun", "Jul", "August", "September", "Oktober", "November", "December"];
 // let index: usize = 10;
@@ -25,26 +34,26 @@ fn main() {
 
     loop {
         let mut input = String::new();
-        io::stdin().read_line(&mut input);
+        io::stdin().read_line(&mut input).unwrap();
 
         if input == "osiris\n" {
-            osiris::main();
+            osiris2::main();
             break;
         }
         if input == "evie\n" {
-            evie::main();
+            evie2::main();
             break;
         }
         if input == "hydrant\n" {
-            hydrant::main();
+            hydrant2::main();
             break;
         }
         if input == "firestorm\n" {
-            firestorm::main();
+            firestorm2::main();
             break;
         }
         if input == "bachi\n" {
-            bachi::main();
+            bachi2::main();
             break;
         }
         println!("Zle meno ďula");
