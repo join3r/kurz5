@@ -11,7 +11,7 @@
 // Program zapíše do súboru, vždy o jedno číslo väčšie:
 // 2,3,4,6,9,101
 
-use std::io;
+use std::{fs::File, io};
 use std::io::Write;
 use std::fs::OpenOptions;
 pub fn main() {
@@ -28,5 +28,12 @@ pub fn main() {
             cisla.push(input_cislo + 1);
         }
     };
-    println!("{:?}", cisla);
+    // println!("{:?}", cisla); // pouzit Debug trait sa nerata, chcem vypisat vsetky veci oddelene ciarkou ako je v priklade
+
+    for i in cisla {
+        print!("{}, ", i); // nič nebude vidno na obrazovke po výpise => https://doc.rust-lang.org/std/macro.print.html
+    };
+
+    // fs::write("subor.csv", numbers);
+
 }

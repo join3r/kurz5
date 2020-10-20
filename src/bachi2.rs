@@ -1,3 +1,4 @@
+use std::fmt::Debug;
 use std::io;
 
 pub fn main() {
@@ -13,5 +14,7 @@ pub fn main() {
             cisla.push(input + 1);
         }
     }
-    println!("nejde to");
+    // display()
 }
+
+
