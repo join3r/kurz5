@@ -1,29 +1,29 @@
 use std::io;
 
-mod osiris2;
-mod evie2;
-mod hydrant2;
-mod firestorm2;
-mod bachi2;
+mod osiris3;
+mod evie3;
+mod hydrant3;
+mod firestorm3;
+mod bachi3;
 
-// let mut cisla: Vec<i32> = Vec::new(); <-- prazdny vector
-// cisla.push(1);
-// cisla.push(2);
-// assert_eq!(cisla[0], 1);
-// assert_eq!(cislo[1], 2);
+// struct Adresa {
+//      ulica: String,
+//      cislo_ulice: i32,
+// }
 
-// let cisla: Vec<i32> = vec![1, 2, "Bimbo"]; <-- Neslo
-// let mena: Vec<&str> = vec!["Jano", "Pista", "Adolf"]
+// impl Adresa {
+//     fn vypis_adresu(self) {
+//         println!("{} {}", self.ulica, self.cislo_ulice);
+//     }
+// }
 
-// let mesiace = ["Januar", "Februar", "Marec", "April", "Maj", "Jun", "Jul", "August", "September", "Oktober", "November", "December"];
-// let index: usize = 10;
-// assert_eq!(mesiace[index], "Januar");
+// let join3r: Adresa = Adresa {
+    //      ulica: "Henckovce".into(),
+    //      cislo_ulice: 32,
+    // };
+// join3r.vypis_adresu();
+// assert_eq!(join3r.cislo_ulice, 32);
 
-// let slovo: String = "10";
-// let cislo: i32 = slovo.parse().unwrap();
-
-// let slovo = "slovo\n";
-// assert_eq!(slovo.trim(), "slovo");
 
 fn main() {
     println!("osiris");
@@ -37,23 +37,23 @@ fn main() {
         io::stdin().read_line(&mut input).unwrap();
 
         if input == "osiris\n" {
-            osiris2::main();
+            osiris3::main();
             break;
         }
         if input == "evie\n" {
-            evie2::main();
+            evie3::main();
             break;
         }
         if input == "hydrant\n" {
-            hydrant2::main();
+            hydrant3::main();
             break;
         }
         if input == "firestorm\n" {
-            firestorm2::main();
+            firestorm3::main();
             break;
         }
         if input == "bachi\n" {
-            bachi2::main();
+            bachi3::main();
             break;
         }
         println!("Zle meno ďula");

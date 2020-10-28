@@ -1,6 +1,5 @@
-use std::fmt::Debug;
 use std::io;
-
+//naplna vector
 pub fn main() {
     let mut cisla: Vec<i32> = Vec::new();
     loop {
@@ -14,7 +13,6 @@ pub fn main() {
             cisla.push(input + 1);
         }
     }
-    // display()
+    println!("si zadal: {:?}",cisla);
 }
-
 

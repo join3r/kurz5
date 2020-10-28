@@ -1,0 +1,7 @@
+1. Vytvor struct obldĺžnika.
+2. User zadá jednu aj druhú stranu obldĺžnika
+3. Vytvor metódy pre ten struct, ktoré vyrátajú obvod a obsah obldĺžnika
+4. Vytvor enum, ktorý bude mať možnosti obvod a obsah
+5. Od usera sa opýtaj, či chce vyrátať obvod alebo obsah
+6. Matchni jeho vstup ku enum
+7. Vypíš výsledok
