@@ -58,17 +58,17 @@ pub fn main() {
 
    
 
-    match op {
+    // match op {
 
-    }
+    // }
 
 
-    if input.trim() == "a" {
-        let operation = Op::Area;
-    }
-    if input.trim() == "p" {
-        let operation = Op::Perimeter;
-    }
+    // if input.trim() == "a" {
+    //     let operation = Op::Area;
+    // }
+    // if input.trim() == "p" {
+    //     let operation = Op::Perimeter;
+    // }
 
 
 

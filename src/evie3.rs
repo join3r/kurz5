@@ -42,7 +42,7 @@ impl Obdlznik {
     }
 }
 
-println!("Obsah obdlznika je {} a obvod je {}", )
+// println!("Obsah obdlznika je {} a obvod je {}", )
 
 //         println!("{} {}", self.ulica, self.cislo_ulice);
 //     }

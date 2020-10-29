@@ -54,11 +54,11 @@ pub fn main() {
     io::stdin().read_line(&mut lojzo).unwrap();
 
 
-    match lojzo {
-        operacia::obsah => println!("Obsah je {}", obdlznik.obsah()),
-        operacia::obvod => println!("Obsah je {}", obdlznik.obvod()),
-        _ => (),
-    }
+    // match lojzo {
+    //     operacia::obsah => println!("Obsah je {}", obdlznik.obsah()),
+    //     operacia::obvod => println!("Obsah je {}", obdlznik.obvod()),
+    //     _ => (),
+    // }
 
 }
 

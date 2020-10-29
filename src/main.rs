@@ -1,10 +1,10 @@
 use std::io;
 
-mod osiris3;
-mod evie3;
-mod hydrant3;
-mod firestorm3;
 mod bachi3;
+mod evie3;
+mod firestorm3;
+mod hydrant3;
+mod osiris3;
 
 // struct Adresa {
 //      ulica: String,
@@ -18,45 +18,73 @@ mod bachi3;
 // }
 
 // let join3r: Adresa = Adresa {
-    //      ulica: "Henckovce".into(),
-    //      cislo_ulice: 32,
-    // };
+//      ulica: "Henckovce".into(),
+//      cislo_ulice: 32,
+// };
 // join3r.vypis_adresu();
 // assert_eq!(join3r.cislo_ulice, 32);
 
+// bachi, evie, firestorm, fusekla, hydrant
+
+enum Mena {
+    Bachi,
+    Evie,
+    Firestorm,
+    Fusekla,
+    Hydrant,
+}
+
+impl LepsiString {
+    fn parse_to_enum(&self) -> Mena {
+        match self.inner.as_str() {
+            "bachi" => Mena::Bachi,
+            "evie" => Mena::Evie,
+            "firestorm" => Mena::Firestorm,
+            "fusekla" => Mena::Fusekla,
+            "hydrant" => Mena::Hydrant,
+            _ => panic!("Zly input"),
+        }
+    }
+}
+
+struct LepsiString {
+    inner: String,
+}
+
+impl Mena {
+    fn show_all() {
+        println!("{}", Mena::Bachi.show());
+        println!("{}", Mena::Evie.show());
+        println!("{}", Mena::Firestorm.show());
+        println!("{}", Mena::Fusekla.show());
+        println!("{}", Mena::Hydrant.show());
+    }
+
+    fn show(&self) -> &str {
+        match self {
+            Mena::Bachi => "Bachi",
+            Mena::Evie => "Evie",
+            Mena::Firestorm => "Firestorm",
+            Mena::Fusekla => "Fusekla",
+            Mena::Hydrant => "Hydrant",
+        }
+    }
+}
 
 fn main() {
-    println!("osiris");
-    println!("evie");
-    println!("hydrant");
-    println!("firestorm");
-    println!("bachi");
+    Mena::show_all();
 
-    loop {
-        let mut input = String::new();
-        io::stdin().read_line(&mut input).unwrap();
-
-        if input == "osiris\n" {
-            osiris3::main();
-            break;
-        }
-        if input == "evie\n" {
-            evie3::main();
-            break;
-        }
-        if input == "hydrant\n" {
-            hydrant3::main();
-            break;
-        }
-        if input == "firestorm\n" {
-            firestorm3::main();
-            break;
-        }
-        if input == "bachi\n" {
-            bachi3::main();
-            break;
-        }
-        println!("Zle meno ďula");
+    let mut input = String::new();
+    io::stdin().read_line(&mut input).unwrap();
+    let input = LepsiString {
+        inner: input.trim().to_lowercase(),
+    };
+    match input.parse_to_enum() {
+        Mena::Bachi => bachi3::main(),
+        Mena::Evie => evie3::main(),
+        Mena::Firestorm => firestorm3::main(),
+        Mena::Fusekla => osiris3::main(),
+        Mena::Hydrant => hydrant3::main(),
     }
 }
 
