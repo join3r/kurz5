@@ -50,19 +50,43 @@ pub fn main() {
     println!("rozmery su {} a {}", obdlznik.dlzka, obdlznik.sirka);
 
     println!("Obvod/obsah?");
-    let mut lojzo: String = String::new();
-    io::stdin().read_line(&mut lojzo).unwrap();
+    let mut input: String = String::new();
+    io::stdin().read_line(&mut input).unwrap();
+    let input = LepsiString {
+        inner: input.trim().to_lowercase(),
+    };
 
-
-    // match lojzo {
-    //     operacia::obsah => println!("Obsah je {}", obdlznik.obsah()),
-    //     operacia::obvod => println!("Obsah je {}", obdlznik.obvod()),
+    // match input.parse_to_enum() {
+    //     Operacia::Obsah => println!("Obsah je {}", obdlznik.obsah()),
+    //     Operacia::Obvod => println!("Obvod je {}", obdlznik.obvod()),
     //     _ => (),
     // }
 
+        match input.parse_to_enum() {
+        Operacia::Obsah => println!("Obsah je {}", obdlznik.obsah()),
+        Operacia::Obvod => println!("Obvod je {}", obdlznik.obvod()),
+        _ => (),
+    }
 }
 
-enum operacia {
-    obvod,
-    obsah,
+impl LepsiString {
+    fn parse_to_enum(&self) -> Operacia {
+        match self.inner.as_str() {
+            "obvod" => Operacia::Obvod,
+            "obsah" => Operacia::Obsah,
+            _ => panic!("Si zadal glupotu"),
+        }
+    }
+}
+enum Operacia {
+    Obvod(u32),
+    Obsah(u32),
+}
+
+// enum Nieco {
+//  varianta(u32),
+//  variantb(u32),
+// }
+struct LepsiString {
+    inner: String,
 }

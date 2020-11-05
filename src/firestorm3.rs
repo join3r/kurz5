@@ -1,4 +1,3 @@
-
 // 1. Vytvor struct obldĺžnika.
 // 2. User zadá jednu aj druhú stranu obldĺžnika
 // 3. Vytvor metódy pre ten struct, ktoré vyrátajú obvod a obsah obldĺžnika
@@ -14,17 +13,21 @@ struct Rect {
 }
 
 impl Rect {
-    fn count_perimeter(&self) -> i32 {
+    fn count_perimeter(&mut self) -> i32 {
         2 * (self.a + self.b)
     }
-    fn count_area(&self) -> i32 {
+    fn count_area(&mut self) -> i32 {
         self.a * self.b
+    }
+    fn print_help() {
+        println!("Possible methods are  to count perimeter - p, count area - a");
     }
 }
 
 enum Op {
     Perimeter,
     Area,
+    Unknown,
 }
 
 pub fn main() {
@@ -41,7 +44,7 @@ pub fn main() {
     std::io::stdin().read_line(&mut side_b);
 
 
-    let rect: Rect = Rect {
+    let mut user_rect: Rect = Rect {
         a: side_a.trim().parse().unwrap(),
         b: side_b.trim().parse().unwrap(),
     };
@@ -50,39 +53,26 @@ pub fn main() {
     println!("What would you like to count ?");
     println!("a - area,  p - perimeter ");
     std::io::stdin().read_line(&mut input);
-    let op = input.trim();
+    let user_op = input.trim();
     // let obvod = rect.clone().count_perimeter();
 
-    println!("You have entered a: {} b: {}", rect.a, rect.b );
-    println!("You have entered operation: {} ", op);
+    fn process_user_input(input: &str, rect: Rect ) -> Op {
+        match input {
+            "a" => Op::Area,
+            "p" => Op::Perimeter,
+            _ => Op::Unknown,
+        }
+    }
 
-   
+    let processed_input = process_user_input(user_op, user_rect);
+    println!("You have entered a: {} b: {}", user_rect.a, user_rect.b );
+    println!("You have entered operation: {} ", user_op);
+    // println!("Result of operation: {} ", );
 
-    // match op {
-
-    // }
-
-
-    // if input.trim() == "a" {
-    //     let operation = Op::Area;
-    // }
-    // if input.trim() == "p" {
-    //     let operation = Op::Perimeter;
-    // }
-
-
-
-
-
-  
-
-
-    
-
-
-
-
-
-
+    match processed_input {
+        Op::Perimeter => println!("Perimeter: {}, ( 2x( {} + {} ))", user_rect.count_perimeter(), user_rect.a, user_rect.b ),
+        Op::Area => println!("Area: {}, ({} x {})", user_rect.count_area(), user_rect.a, user_rect.b),
+        Op::Unknown => println!("Unknown operation, p - count perimeter , a - count area"),
+    }
 
 }

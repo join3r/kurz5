@@ -18,21 +18,24 @@ pub fn main() {
 
   println!("Tote strany si zadal: {} a {}", strany.a, strany.b);
 
-  let mut o: String = String::new();
+  let mut input: String = String::new();
 
-  let obvod = strany.obvod();
-  let obsah = strany.obsah(); // <-- strany moved
+  println!("Poratam obsah, ci obvod?");
+  io::stdin().read_line(&mut input).unwrap();
+  let o = MyString {
+    inner: input,
+  };
 
-// match o {
-//   Porataj::Obsah => println!("Obsah: {}", strany.obsah()),
-//   Porataj::Obvod => println!("Obsah: {}", strany.obvod()),
-// }
+  // let obvod = strany.obvod();
+  // let obsah = strany.obsah(); // <-- strany moved
 
-  // match o.try_into() {
-  //   Ok(porataj::obvod) => obvod(strany),
-  //   Ok(porataj::obsah) => obsah(strany),
-  //   _ => Err("Nem dobre"),
-  // }
+
+
+  match o.parse_to_enum() {
+    Porataj::Obsah => println!("Obsah: {}", strany.obsah()),
+    Porataj::Obvod => println!("Obsah: {}", strany.obvod()),
+  }
+
 }
 
 impl Obdlznika {
@@ -47,7 +50,20 @@ impl Obdlznika {
 
 enum Porataj {
   Obvod,
-  Obsah
+  Obsah,
+}
+
+struct MyString {
+  inner: String
+}
+
+impl MyString {
+  fn parse_to_enum(&self) -> Porataj {
+    match self.inner.trim().to_lowercase().as_str() { // trim() "obvod\n"
+      "obvod" => Porataj::Obvod,
+      "obsah" => Porataj::Obsah,
+    }
+  }
 }
 
 #[derive(Copy, Clone)]

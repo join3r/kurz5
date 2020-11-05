@@ -23,21 +23,35 @@ pub fn main() {
     io::stdin().read_line(&mut input);
     let strana_b: i32 = input.trim().parse().unwrap();
 
-    let obdlznik = Obdlznik {
+    let jano = Obdlznik {
         a: strana_a,
         b: strana_b,
     };
 
-    println!("daj obvod alebo obsah (O/S");
+    println!("daj obvod alebo obsah (O/S)");
     let mut input = String::new();
     io::stdin().read_line(&mut input);
-    if input.trim() == "O" {
-        println!("obdlznik ma obvod {}", obdlznik.obvod());
+
+    let operacia: Operacie = nieco(&input);
+
+    match operacia {
+        Operacie::Obsah => println!("obsah je {}", jano.obsah()),
+        Operacie::Obvod => println!("obvod je {}", jano.obvod() ),
     }
-    if input.trim() == "O" {
-        println!("obdlznik ma obsah {}", obdlznik.obsah());
-    }   
-    }
+
+}
+fn nieco(a:&str) -> Operacie {
+   match a {
+       "O"=> Operacie::Obvod,
+       "S"=> Operacie::Obsah,
+       _=> panic!("nexistuje")
+   }
+}
+
+
+// Operacie::Obvod
+// Operacie::Obsah
+
     // println!("strana a je {} strana b je {}", obdlznik.a, obdlznik.b);
     // println!("obdlznik ma obsah {}", obdlznik.obsah());
 
@@ -50,9 +64,12 @@ impl Obdlznik {
         2 * (self.a + self.b)
     }
 }
+enum Operacie{
+    Obvod,
+    Obsah,
 
-// let join3r: Adresa = Adresa {
-//     //      ulica: "Henckovce".into(),
-//     //      cislo_ulice: 32,
+}
 
-// }
+
+// match strana_a.parse_to_enum() {
+// strana_a
